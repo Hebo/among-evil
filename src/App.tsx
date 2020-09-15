@@ -74,6 +74,7 @@ const ResetButton = () => {
   };
 
   return (
+    <div>
     <button
       className="button is-warning is-light"
       id="reset"
@@ -81,6 +82,8 @@ const ResetButton = () => {
     >
       Reset Scores
     </button>
+    <hr></hr>
+    </div>
   );
 };
 
