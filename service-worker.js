@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/among-evil/precache-manifest.92564b1176f15375d8dc98063ed385eb.js"
+  "/among-evil/precache-manifest.2654178b65b8642009af3f189b534531.js"
 );
 
 self.addEventListener('message', (event) => {
