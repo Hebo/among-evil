@@ -40,3 +40,7 @@
 .player-name {
   width: 14em;
 }
+
+.player-score > button {
+  width: 3em
+}

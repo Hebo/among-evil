@@ -68,7 +68,7 @@ function App() {
               placeholder="Player"
             />
           </div>
-          <div className="control">
+          <div className="control player-score">
             <button className="js-score button">0</button>
           </div>
         </div>
