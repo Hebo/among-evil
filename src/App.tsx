@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {  faTimes, faPlus } from "@fortawesome/free-solid-svg-icons";
+
 const ready = function (cb: any) {
   // Check if the `document` is loaded completely
   document.readyState === "loading"
@@ -74,15 +77,17 @@ const ResetButton = () => {
   };
 
   return (
-    <div>
-    <button
-      className="button is-warning is-light"
-      id="reset"
-      onClick={resetAll}
-    >
-      Reset Scores
-    </button>
-    <hr></hr>
+    <div className="column has-text-centered">
+      <button
+        className="button is-danger is-outlined"
+        id="reset"
+        onClick={resetAll}
+      >
+        <span>Reset Scores</span>
+        <span className="icon is-medium">
+          <FontAwesomeIcon icon={faTimes} size="lg" />
+        </span>
+      </button>
     </div>
   );
 };

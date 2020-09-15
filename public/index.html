@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.css" rel="stylesheet" type="text/css" />
 
-    <!--
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,207 +24,289 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Among Evil</title>
-  </head>
-  <body>
-    <!-- <main class="main-container"> -->
+  <title>Among Evil</title>
+</head>
 
-      <section class="section">
-        <div class="container">
-          <h1 class="title">
-            Among Evil
-          </h1>
-          <h2 class="subtitle">
-            Track suspicious cosmonauts in Among Us, and <i>defenestrate them</i>
-          </h2>
-        <!-- </section>
+<body>
+  <!-- <main class="main-container"> -->
 
-        <section class="section"> -->
-
-        <div id="root"></div>
-
-        <hr>
-        <ol type="1">
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="field is-horizontal js-player">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input player-name" type="text" placeholder="Player">
-                </div>
-                <div class="control">
-                  <button class="js-score button">0</button>
-                </div>
-              </div>
-              <div class="field ml-5">
-                <button class="button is-outlined is-danger bad">-</button>
-                <button class="button is-outlined is-success good">+</button>
-                <button class="status-btn button is-success is-light js-status">Alive</button>
-              </div>
-            </div>
-          </li>
+  <section class="section">
+    <h1 class="title">
+      Among Evil
+    </h1>
+    <h2 class="subtitle">
+      Track suspicious cosmonauts in Among Us and <i>defenestrate them</i>
+    </h2>
+    <hr>
+    </hr>
 
 
+    <div class="container pl-4 mt-2">
+      <div class="columns">
+        <div class="column is-narrow">
+          <div id="root"></div>
 
-        </ol>
+          <ol type="1">
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="field is-horizontal js-player">
+                <div class="field has-addons">
+                  <div class="control">
+                    <input class="input player-name" type="text" placeholder="Player">
+                  </div>
+                  <div class="control">
+                    <button class="js-score button">0</button>
+                  </div>
+                </div>
+                <div class="field ml-5">
+                  <button class="button is-outlined is-danger bad">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-minus"></i>
+                    </span>
+                  </button>
+                  <button class="button is-outlined is-success good">
+                    <span class="icon is-medium">
+                      <i class="fas fa-lg fa-plus"></i>
+                    </span>
+                  </button>
+                  <button class="status-btn button is-success is-light js-status">Alive</button>
+                </div>
+              </div>
+            </li>
 
 
+          </ol>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
 
-    <!-- </main> -->
-  </body>
+  <!-- </main> -->
+</body>
+
 </html>
