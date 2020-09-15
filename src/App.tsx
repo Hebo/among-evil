@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faTimes, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const ready = function (cb: any) {
   // Check if the `document` is loaded completely
@@ -57,9 +57,50 @@ ready(function () {
 });
 
 function App() {
+  const playerTemplate = (
+    <li>
+      <div className="field is-horizontal js-player">
+        <div className="field has-addons">
+          <div className="control">
+            <input
+              className="input player-name"
+              type="text"
+              placeholder="Player"
+            />
+          </div>
+          <div className="control">
+            <button className="js-score button">0</button>
+          </div>
+        </div>
+        <div className="field ml-5">
+          <button className="button is-outlined is-danger bad">
+            <span className="icon is-medium">
+              <FontAwesomeIcon icon={faMinus} size="lg" />
+            </span>
+          </button>
+          <button className="button is-outlined is-success good">
+            <span className="icon is-medium">
+              <FontAwesomeIcon icon={faPlus} size="lg" />
+            </span>
+          </button>
+          <button className="status-btn button is-success is-light js-status">
+            Alive
+          </button>
+        </div>
+      </div>
+    </li>
+  );
+
+  let playerEls = [...Array(10)].map((value: undefined, index: number) => {
+    // <Field id={index + 1} key={index} />
+    return playerTemplate;
+  });
+
   return (
     <div className="App">
       <ResetButton />
+
+      <ol type="1">{playerEls}</ol>
     </div>
   );
 }
