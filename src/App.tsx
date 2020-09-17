@@ -7,6 +7,7 @@ import {
   faPlus,
   faMinus,
   faSmileBeam,
+  faSkullCrossbones
 } from "@fortawesome/free-solid-svg-icons";
 
 type PlayerState = {
@@ -105,7 +106,7 @@ class Player extends React.Component<PlayerProps> {
               <input
                 className="input player-name"
                 type="text"
-                placeholder="Player"
+                placeholder={`Player #${this.props.id}`}
               />
             </div>
             <div className="control player-score">
@@ -140,14 +141,16 @@ class Player extends React.Component<PlayerProps> {
 type StatusButtonProps = { alive: boolean; onAliveChange: Function };
 const StatusButton = ({ alive, onAliveChange }: StatusButtonProps) => {
   let btnClasses,
-    // icon,
+    btnIcon,
     btnText = null;
   if (alive) {
     btnClasses = "is-success is-light";
     btnText = "Alive";
+    btnIcon = faSmileBeam;
   } else {
     btnClasses = "is-dark";
     btnText = "Dead";
+    btnIcon = faSkullCrossbones;
   }
 
   return (
@@ -159,7 +162,7 @@ const StatusButton = ({ alive, onAliveChange }: StatusButtonProps) => {
     >
       <span>{btnText}</span>
       <span className="icon is-medium">
-        <FontAwesomeIcon icon={faSmileBeam} size="lg" />
+        <FontAwesomeIcon icon={btnIcon} size="lg" />
       </span>
     </button>
   );
