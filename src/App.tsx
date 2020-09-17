@@ -100,7 +100,7 @@ class Player extends React.Component<PlayerProps> {
   render() {
     return (
       <li>
-        <div className="field is-horizontal js-player is-flex">
+        <div className="field mb-2 is-horizontal is-grouped is-grouped-centered is-grouped-multiline js-player is-flex">
           <div className="field has-addons">
             <div className="control">
               <input
