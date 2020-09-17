@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e65b7055267138298c4e9e3e9c818988",
+    "revision": "c96663c971d064da9c0c281a875b4a35",
     "url": "/among-evil/index.html"
   },
   {
-    "revision": "b801989fcfbaa41e74b3",
+    "revision": "4b0b508b9bb695bfbdb8",
     "url": "/among-evil/static/css/main.c1c1c329.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/among-evil/static/js/2.47f10e25.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b801989fcfbaa41e74b3",
-    "url": "/among-evil/static/js/main.70c00e4e.chunk.js"
+    "revision": "4b0b508b9bb695bfbdb8",
+    "url": "/among-evil/static/js/main.15537f12.chunk.js"
   },
   {
     "revision": "ac841c1b314bc01bccf0",
