@@ -85,7 +85,7 @@ function App() {
     <div className="App">
       <ResetButton />
 
-      <ol type="1">{playerEls}</ol>
+      {playerEls}
     </div>
   );
 }
@@ -99,43 +99,45 @@ type PlayerProps = {
 class Player extends React.Component<PlayerProps> {
   render() {
     return (
-      <li>
-        <div className="field mb-0 is-horizontal is-grouped is-grouped-centered is-grouped-multiline js-player is-flex">
-          <div className="field has-addons">
-            <div className="control">
-              <input
-                className="input player-name"
-                type="text"
-                placeholder={`Player #${this.props.id}`}
-              />
-            </div>
-            <div className="control player-score">
-              <button className="js-score button">0</button>
-            </div>
-          </div>
-          <div className="field is-grouped ml-5">
-            <div className="buttons has-addons">
-              <button className="button is-outlined is-danger bad">
-                <span className="icon is-medium">
-                  <FontAwesomeIcon icon={faMinus} size="lg" />
-                </span>
-              </button>
-              <button className="button is-outlined is-success good">
-                <span className="icon is-medium">
-                  <FontAwesomeIcon icon={faPlus} size="lg" />
-                </span>
-              </button>
-            </div>
-
-            <StatusButton
-              alive={this.props.isAlive}
-              onAliveChange={(isAlive: boolean) => {
-                this.props.onAliveChange(this.props.id, isAlive);
-              }}
+      // <li>
+      <div className="Player_main mb-0 is-horizontal is-grouped is-grouped-centered is-grouped-multiline js-player is-flex">
+        <div className="Player_numberLabel field-label is-normal">
+          <label className="label">{this.props.id}.</label>
+        </div>
+        <div className="field has-addons">
+          <div className="control">
+            <input
+              className="input player-name"
+              type="text"
+              placeholder={`Player #${this.props.id}`}
             />
           </div>
+          <div className="control player-score">
+            <button className="js-score button">0</button>
+          </div>
         </div>
-      </li>
+        <div className="field is-grouped ml-5">
+          <div className="buttons has-addons mb-0">
+            <button className="button is-outlined is-danger bad">
+              <span className="icon is-medium">
+                <FontAwesomeIcon icon={faMinus} size="lg" />
+              </span>
+            </button>
+            <button className="button is-outlined is-success good">
+              <span className="icon is-medium">
+                <FontAwesomeIcon icon={faPlus} size="lg" />
+              </span>
+            </button>
+          </div>
+
+          <StatusButton
+            alive={this.props.isAlive}
+            onAliveChange={(isAlive: boolean) => {
+              this.props.onAliveChange(this.props.id, isAlive);
+            }}
+          />
+        </div>
+      </div>
     );
   }
 }

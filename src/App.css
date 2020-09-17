@@ -48,3 +48,9 @@
 .status-btn {
   width: 6.5em
 }
+/*
+.Player_numberLabel {
+  flex-basis: 2rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+} */
