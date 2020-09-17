@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/among-evil/static/css/main.c1c1c329.chunk.css",
-    "main.js": "/among-evil/static/js/main.1c6ee40f.chunk.js",
-    "main.js.map": "/among-evil/static/js/main.1c6ee40f.chunk.js.map",
+    "main.js": "/among-evil/static/js/main.70c00e4e.chunk.js",
+    "main.js.map": "/among-evil/static/js/main.70c00e4e.chunk.js.map",
     "runtime-main.js": "/among-evil/static/js/runtime-main.eac3b648.js",
     "runtime-main.js.map": "/among-evil/static/js/runtime-main.eac3b648.js.map",
     "static/js/2.47f10e25.chunk.js": "/among-evil/static/js/2.47f10e25.chunk.js",
     "static/js/2.47f10e25.chunk.js.map": "/among-evil/static/js/2.47f10e25.chunk.js.map",
     "index.html": "/among-evil/index.html",
-    "precache-manifest.4d0875064cca05a05c7c06e8c2166ecd.js": "/among-evil/precache-manifest.4d0875064cca05a05c7c06e8c2166ecd.js",
+    "precache-manifest.439a3ae782d49034f6b4fa772b2dd435.js": "/among-evil/precache-manifest.439a3ae782d49034f6b4fa772b2dd435.js",
     "service-worker.js": "/among-evil/service-worker.js",
     "static/css/main.c1c1c329.chunk.css.map": "/among-evil/static/css/main.c1c1c329.chunk.css.map",
     "static/js/2.47f10e25.chunk.js.LICENSE.txt": "/among-evil/static/js/2.47f10e25.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.eac3b648.js",
     "static/js/2.47f10e25.chunk.js",
     "static/css/main.c1c1c329.chunk.css",
-    "static/js/main.1c6ee40f.chunk.js"
+    "static/js/main.70c00e4e.chunk.js"
   ]
 }
