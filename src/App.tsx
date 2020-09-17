@@ -7,7 +7,7 @@ import {
   faPlus,
   faMinus,
   faSmileBeam,
-  faSkullCrossbones
+  faSkullCrossbones,
 } from "@fortawesome/free-solid-svg-icons";
 
 type PlayerState = {
@@ -100,7 +100,7 @@ class Player extends React.Component<PlayerProps> {
   render() {
     return (
       <li>
-        <div className="field mb-2 is-horizontal is-grouped is-grouped-centered is-grouped-multiline js-player is-flex">
+        <div className="field mb-0 is-horizontal is-grouped is-grouped-centered is-grouped-multiline js-player is-flex">
           <div className="field has-addons">
             <div className="control">
               <input
@@ -113,17 +113,19 @@ class Player extends React.Component<PlayerProps> {
               <button className="js-score button">0</button>
             </div>
           </div>
-          <div className="field ml-5">
-            <button className="button is-outlined is-danger bad">
-              <span className="icon is-medium">
-                <FontAwesomeIcon icon={faMinus} size="lg" />
-              </span>
-            </button>
-            <button className="button is-outlined is-success good">
-              <span className="icon is-medium">
-                <FontAwesomeIcon icon={faPlus} size="lg" />
-              </span>
-            </button>
+          <div className="field is-grouped ml-5">
+            <div className="buttons has-addons">
+              <button className="button is-outlined is-danger bad">
+                <span className="icon is-medium">
+                  <FontAwesomeIcon icon={faMinus} size="lg" />
+                </span>
+              </button>
+              <button className="button is-outlined is-success good">
+                <span className="icon is-medium">
+                  <FontAwesomeIcon icon={faPlus} size="lg" />
+                </span>
+              </button>
+            </div>
 
             <StatusButton
               alive={this.props.isAlive}
@@ -149,13 +151,13 @@ const StatusButton = ({ alive, onAliveChange }: StatusButtonProps) => {
     btnIcon = faSmileBeam;
   } else {
     btnClasses = "is-dark";
-    btnText = "Dead";
+    btnText = "Press F";
     btnIcon = faSkullCrossbones;
   }
 
   return (
     <button
-      className={`status-btn button js-status ${btnClasses}`}
+      className={`status-btn button ml-2 js-status ${btnClasses}`}
       onClick={() => {
         onAliveChange(!alive);
       }}
