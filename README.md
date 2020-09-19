@@ -7,4 +7,5 @@ See me [here](https://hebo.github.io/among-evil)
 TODO
 -----
 
-[ ] Improve breakpoints
+
+[x] Improve breakpoints

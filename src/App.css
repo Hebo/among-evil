@@ -42,15 +42,21 @@
 }
 
 .player-score > button {
-  width: 3em
+  width: 3em;
 }
 
 .status-btn {
-  width: 6.5em
+  width: 6.5em;
 }
-/*
-.Player_numberLabel {
-  flex-basis: 2rem;
-  flex-grow: 0;
-  flex-shrink: 0;
-} */
+
+.Player__numberLabel {
+  width: 1.75rem;
+  padding-right: 0.5rem;
+  text-align: right;
+}
+
+.App {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}

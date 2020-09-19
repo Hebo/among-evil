@@ -64,10 +64,19 @@ function App() {
     });
   });
 
-  let setAlive = (id: number, isAlive: boolean) => {
+  const setAlive = (id: number, isAlive: boolean) => {
     console.log("status updated");
     players[id - 1].isAlive = isAlive;
     setPlayers([...players]);
+  };
+
+  const resetAll = () => {
+    setPlayers(
+      players.map((p) => {
+        p.isAlive = true;
+        return p;
+      })
+    );
   };
 
   let playerEls = players.map((player, index: number) => {
@@ -83,7 +92,7 @@ function App() {
 
   return (
     <div className="App">
-      <ResetButton />
+      <ResetButton resetFn={resetAll} />
 
       {playerEls}
     </div>
@@ -99,9 +108,8 @@ type PlayerProps = {
 class Player extends React.Component<PlayerProps> {
   render() {
     return (
-      // <li>
       <div className="Player_main mb-0 is-horizontal is-grouped is-grouped-centered is-grouped-multiline js-player is-flex">
-        <div className="Player_numberLabel field-label is-normal">
+        <div className="Player__numberLabel is-normal">
           <label className="label">{this.props.id}.</label>
         </div>
         <div className="field has-addons">
@@ -172,16 +180,14 @@ const StatusButton = ({ alive, onAliveChange }: StatusButtonProps) => {
   );
 };
 
-const ResetButton = () => {
+type ResetButtonProps = { resetFn: Function };
+const ResetButton = ({ resetFn }: ResetButtonProps) => {
   const resetAll = () => {
     document.querySelectorAll(".js-score").forEach((e) => {
       e.innerHTML = "0";
     });
 
-    document.querySelectorAll(".js-status").forEach((e) => {
-      // switchStatus(e, true);
-      return;
-    });
+    resetFn();
   };
 
   return (
