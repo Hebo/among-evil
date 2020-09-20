@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/among-evil/static/css/main.0e1df706.chunk.css",
-    "main.js": "/among-evil/static/js/main.575a6a6a.chunk.js",
-    "main.js.map": "/among-evil/static/js/main.575a6a6a.chunk.js.map",
+    "main.css": "/among-evil/static/css/main.a56990a4.chunk.css",
+    "main.js": "/among-evil/static/js/main.aa70a5d4.chunk.js",
+    "main.js.map": "/among-evil/static/js/main.aa70a5d4.chunk.js.map",
     "runtime-main.js": "/among-evil/static/js/runtime-main.eac3b648.js",
     "runtime-main.js.map": "/among-evil/static/js/runtime-main.eac3b648.js.map",
-    "static/js/2.47f10e25.chunk.js": "/among-evil/static/js/2.47f10e25.chunk.js",
-    "static/js/2.47f10e25.chunk.js.map": "/among-evil/static/js/2.47f10e25.chunk.js.map",
+    "static/js/2.72229be4.chunk.js": "/among-evil/static/js/2.72229be4.chunk.js",
+    "static/js/2.72229be4.chunk.js.map": "/among-evil/static/js/2.72229be4.chunk.js.map",
     "index.html": "/among-evil/index.html",
-    "precache-manifest.402f98149f675de1385dd24b0621d767.js": "/among-evil/precache-manifest.402f98149f675de1385dd24b0621d767.js",
+    "precache-manifest.06b3c675a13ae7443327b7c11b977d7d.js": "/among-evil/precache-manifest.06b3c675a13ae7443327b7c11b977d7d.js",
     "service-worker.js": "/among-evil/service-worker.js",
-    "static/css/main.0e1df706.chunk.css.map": "/among-evil/static/css/main.0e1df706.chunk.css.map",
-    "static/js/2.47f10e25.chunk.js.LICENSE.txt": "/among-evil/static/js/2.47f10e25.chunk.js.LICENSE.txt"
+    "static/css/main.a56990a4.chunk.css.map": "/among-evil/static/css/main.a56990a4.chunk.css.map",
+    "static/js/2.72229be4.chunk.js.LICENSE.txt": "/among-evil/static/js/2.72229be4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.eac3b648.js",
-    "static/js/2.47f10e25.chunk.js",
-    "static/css/main.0e1df706.chunk.css",
-    "static/js/main.575a6a6a.chunk.js"
+    "static/js/2.72229be4.chunk.js",
+    "static/css/main.a56990a4.chunk.css",
+    "static/js/main.aa70a5d4.chunk.js"
   ]
 }
