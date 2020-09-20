@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import cn from "classnames";
 import "./App.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -109,10 +110,18 @@ class Player extends React.Component<PlayerProps> {
   render() {
     return (
       <div className="Player_main mb-0 is-horizontal is-grouped is-grouped-centered is-grouped-multiline js-player is-flex">
-        <div className="Player__numberLabel is-normal">
+        <div
+          className={cn("Player__numberLabel is-normal", {
+            "Player--dead": !this.props.isAlive,
+          })}
+        >
           <label className="label">{this.props.id}.</label>
         </div>
-        <div className="field has-addons">
+        <div
+          className={cn("field has-addons", {
+            "Player--dead": !this.props.isAlive,
+          })}
+        >
           <div className="control">
             <input
               className="input player-name"
@@ -120,11 +129,19 @@ class Player extends React.Component<PlayerProps> {
               placeholder={`Player #${this.props.id}`}
             />
           </div>
-          <div className="control player-score">
+          <div
+            className={cn("control player-score", {
+              "Player--dead": !this.props.isAlive,
+            })}
+          >
             <button className="js-score button">0</button>
           </div>
         </div>
-        <div className="field is-grouped ml-5">
+        <div
+          className={cn("field is-grouped ml-5", {
+            "Player--dead": !this.props.isAlive,
+          })}
+        >
           <div className="buttons has-addons mb-0">
             <button className="button is-outlined is-danger bad">
               <span className="icon is-medium">
