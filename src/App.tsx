@@ -20,7 +20,7 @@ const normalizeScores = (players: PlayerState[]): ScoreMap => {
   let range = Math.max.apply(null, scores) - minScore;
 
   let normalized = players.reduce((acc: ScoreMap, p) => {
-    if (range == 0) {
+    if (range === 0) {
       acc[p.id] = defaultScore;
     } else {
       acc[p.id] = (p.score - minScore) / range;
