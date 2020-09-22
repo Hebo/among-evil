@@ -1,84 +1,78 @@
-import React, { useState, useEffect, useRef } from "react";
-import cn from "classnames";
+import React, { useState } from "react";
 import "./App.css";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTimes,
-  faPlus,
-  faMinus,
-  faSmileBeam,
-  faSkullCrossbones,
-} from "@fortawesome/free-solid-svg-icons";
+import { Player, ResetButton } from "./components/Player";
 
 type PlayerState = {
+  id: string;
   isAlive: boolean;
+  score: number;
 };
-function App() {
-  const numPlayers = 10;
-  const [players, setPlayers] = useState<PlayerState[]>([]);
 
-  useEffect(() => {
-    console.log("rendering");
-    let ps: PlayerState[] = [];
-    [...Array(numPlayers)].forEach(() => {
-      ps.push({ isAlive: true });
-      // return <Player key={index} isAlive={true} />;
-      // return playerTemplate;
-    });
+interface ScoreMap {
+  [key: string]: number;
+}
 
-    setPlayers(ps);
-  }, []);
+const normalizeScores = (players: PlayerState[]): ScoreMap => {
+  let defaultScore = 0.5;
+  let scores = players.map((p) => p.score);
+  let minScore = Math.min.apply(null, scores);
+  let range = Math.max.apply(null, scores) - minScore;
 
-  let didBinds = useRef(false);
-  useEffect(() => {
-    if (didBinds.current) {
-      return;
-    } else if (players.length > 0) {
-      didBinds.current = true;
+  let normalized = players.reduce((acc: ScoreMap, p) => {
+    if (range == 0) {
+      acc[p.id] = defaultScore;
+    } else {
+      acc[p.id] = (p.score - minScore) / range;
     }
 
-    console.log("useEffect -> binding");
-    let elems = document.querySelectorAll(".js-player");
-    // console.log(elems)
-    elems.forEach((el) => {
-      let scoreEle = el.querySelector(".js-score");
-      let statusEl = el.querySelector(".js-status");
-      if (scoreEle === null || statusEl === null) {
-        // console.log("not found")
-        return;
-      }
-      // console.log("found")
+    return acc;
+  }, {});
 
-      el.querySelector(".good")!.addEventListener("click", () => {
-        scoreEle!.innerHTML = (parseInt(scoreEle!.innerHTML) + 1).toString();
-      });
+  console.log(normalized);
 
-      el.querySelector(".bad")!.addEventListener("click", () => {
-        scoreEle!.innerHTML = (parseInt(scoreEle!.innerHTML) - 1).toString();
-      });
+  return normalized;
+};
 
-      scoreEle!.addEventListener("click", () => {
-        // console.log("scoreele")
-        scoreEle!.innerHTML = "0";
-      });
+function App() {
+  const numPlayers = 10;
+  const [players, setPlayers] = useState<PlayerState[]>(() => {
+    let ps: PlayerState[] = [];
+    [...Array(numPlayers)].forEach((_, index) => {
+      ps.push({ id: index.toString(), isAlive: true, score: 0 });
     });
+    return ps;
   });
 
-  const setAlive = (id: number, isAlive: boolean) => {
-    console.log("status updated");
-    players[id - 1].isAlive = isAlive;
+  const handleScoreChange = (id: number, { diff = 0, reset = false }): void => {
+    console.log("handlescore");
+    if (reset) {
+      players[id - 1].score = 0;
+    } else {
+      players[id - 1].score += diff;
+    }
+
     setPlayers([...players]);
+  };
+
+  const setAlive = (id: number, isAlive: boolean) => {
+    setPlayers((ps) => {
+      ps[id - 1].isAlive = isAlive;
+      return [...ps];
+    });
   };
 
   const resetAll = () => {
     setPlayers(
       players.map((p) => {
         p.isAlive = true;
+        p.score = 0;
         return p;
       })
     );
   };
+
+  let scoresNormalized = normalizeScores(players);
 
   let playerEls = players.map((player, index: number) => {
     return (
@@ -87,140 +81,20 @@ function App() {
         id={index + 1}
         isAlive={player.isAlive}
         onAliveChange={setAlive}
+        onScoreChange={handleScoreChange}
+        score={player.score}
+        scoreNormalized={scoresNormalized[index]}
       />
     );
   });
 
   return (
     <div className="App">
-      <ResetButton resetFn={resetAll} />
+      <ResetButton onResetAll={resetAll} />
 
       {playerEls}
     </div>
   );
 }
-
-type PlayerProps = {
-  isAlive: boolean;
-  onAliveChange: Function;
-  id: number;
-};
-
-class Player extends React.Component<PlayerProps> {
-  render() {
-    return (
-      <div className="Player_main mb-0 is-horizontal is-grouped is-grouped-centered is-grouped-multiline js-player is-flex">
-        <div
-          className={cn("Player__numberLabel is-normal", {
-            "Player--dead": !this.props.isAlive,
-          })}
-        >
-          <label className="label">{this.props.id}.</label>
-        </div>
-        <div
-          className={cn("field has-addons", {
-            "Player--dead": !this.props.isAlive,
-          })}
-        >
-          <div className="control">
-            <input
-              className="input player-name"
-              type="text"
-              placeholder={`Player #${this.props.id}`}
-            />
-          </div>
-          <div
-            className={cn("control player-score", {
-              "Player--dead": !this.props.isAlive,
-            })}
-          >
-            <button className="js-score button">0</button>
-          </div>
-        </div>
-        <div
-          className={cn("field is-grouped ml-5", {
-            "Player--dead": !this.props.isAlive,
-          })}
-        >
-          <div className="buttons has-addons mb-0">
-            <button className="button is-outlined is-danger bad">
-              <span className="icon is-medium">
-                <FontAwesomeIcon icon={faMinus} size="lg" />
-              </span>
-            </button>
-            <button className="button is-outlined is-success good">
-              <span className="icon is-medium">
-                <FontAwesomeIcon icon={faPlus} size="lg" />
-              </span>
-            </button>
-          </div>
-
-          <StatusButton
-            alive={this.props.isAlive}
-            onAliveChange={(isAlive: boolean) => {
-              this.props.onAliveChange(this.props.id, isAlive);
-            }}
-          />
-        </div>
-      </div>
-    );
-  }
-}
-
-type StatusButtonProps = { alive: boolean; onAliveChange: Function };
-const StatusButton = ({ alive, onAliveChange }: StatusButtonProps) => {
-  let btnClasses,
-    btnIcon,
-    btnText = null;
-  if (alive) {
-    btnClasses = "is-success is-light";
-    btnText = "Alive";
-    btnIcon = faSmileBeam;
-  } else {
-    btnClasses = "is-dark";
-    btnText = "Press F";
-    btnIcon = faSkullCrossbones;
-  }
-
-  return (
-    <button
-      className={`status-btn button ml-2 js-status ${btnClasses}`}
-      onClick={() => {
-        onAliveChange(!alive);
-      }}
-    >
-      <span>{btnText}</span>
-      <span className="icon is-medium">
-        <FontAwesomeIcon icon={btnIcon} size="lg" />
-      </span>
-    </button>
-  );
-};
-
-type ResetButtonProps = { resetFn: Function };
-const ResetButton = ({ resetFn }: ResetButtonProps) => {
-  const resetAll = () => {
-    document.querySelectorAll(".js-score").forEach((e) => {
-      e.innerHTML = "0";
-    });
-
-    resetFn();
-  };
-
-  return (
-    <div className="column has-text-centered">
-      <button
-        className="button is-danger is-outlined"
-        id="reset"
-        onClick={resetAll}
-      >
-        <span>Reset Scores</span>
-        <span className="icon is-medium">
-          <FontAwesomeIcon icon={faTimes} size="lg" />
-        </span>
-      </button>
-    </div>
-  );
-};
 
 export default App;
