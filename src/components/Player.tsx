@@ -58,6 +58,7 @@ class Player extends React.Component<PlayerProps> {
           >
             <button
               className="button"
+              tabIndex={-1}
               style={scoreStyle}
               onClick={this.props.onScoreChange.bind(this, this.props.id, {
                 reset: true,
@@ -75,6 +76,7 @@ class Player extends React.Component<PlayerProps> {
           <div className="buttons has-addons mb-0">
             <button
               className="button is-outlined is-danger bad"
+              tabIndex={-1}
               onClick={this.props.onScoreChange.bind(this, this.props.id, {
                 diff: -1,
               })}
@@ -85,6 +87,7 @@ class Player extends React.Component<PlayerProps> {
             </button>
             <button
               className="button is-outlined is-success good"
+              tabIndex={-1}
               onClick={this.props.onScoreChange.bind(this, this.props.id, {
                 diff: +1,
               })}
@@ -136,6 +139,7 @@ const StatusButton = ({ alive, onAliveChange }: StatusButtonProps) => {
   return (
     <button
       className={`status-btn button ml-2 js-status ${btnClasses}`}
+      tabIndex={-1}
       onClick={() => {
         onAliveChange(!alive);
       }}
