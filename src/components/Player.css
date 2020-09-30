@@ -1,0 +1,12 @@
+.Player__numberLabel {
+    width: 1.75rem;
+    padding-right: 0.5rem;
+    text-align: right;
+  }
+
+  .Player--dead {
+    /* background-color: gray; */
+    /* filter: blur(0.2px); */
+    opacity: 0.6;
+  }
+

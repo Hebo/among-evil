@@ -1,13 +1,8 @@
 import React, { useState } from "react";
+import { ReactSortable } from "react-sortablejs";
+
+import { Player, ResetButton, PlayerState } from "./components/Player";
 import "./App.css";
-
-import { Player, ResetButton } from "./components/Player";
-
-type PlayerState = {
-  id: string;
-  isAlive: boolean;
-  score: number;
-};
 
 interface ScoreMap {
   [key: string]: number;
@@ -29,7 +24,7 @@ const normalizeScores = (players: PlayerState[]): ScoreMap => {
     return acc;
   }, {});
 
-  console.log(normalized);
+  // console.log(normalized);
 
   return normalized;
 };
@@ -39,7 +34,7 @@ function App() {
   const [players, setPlayers] = useState<PlayerState[]>(() => {
     let ps: PlayerState[] = [];
     [...Array(numPlayers)].forEach((_, index) => {
-      ps.push({ id: index.toString(), isAlive: true, score: 0 });
+      ps.push({ name: "", id: index.toString(), isAlive: true, score: 0 });
     });
     return ps;
   });
@@ -53,6 +48,20 @@ function App() {
     }
 
     setPlayers([...players]);
+  };
+
+  const handleNameChange = (
+    id: string,
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    // console.log("handleNameChange: ", id, event);
+    let value = event.currentTarget.value;
+    setPlayers((ps) => {
+      let idx = ps.findIndex((el) => el.id === id);
+      ps[idx].name = value;
+
+      return [...ps];
+    });
   };
 
   const setAlive = (id: number, isAlive: boolean) => {
@@ -82,7 +91,9 @@ function App() {
         isAlive={player.isAlive}
         onAliveChange={setAlive}
         onScoreChange={handleScoreChange}
+        onNameChange={handleNameChange.bind(null, player.id)}
         score={player.score}
+        player={player}
         scoreNormalized={scoresNormalized[index]}
       />
     );
@@ -92,7 +103,13 @@ function App() {
     <div className="App">
       <ResetButton onResetAll={resetAll} />
 
-      {playerEls}
+      <ReactSortable
+        handle=".Player__numberLabel"
+        list={players}
+        setList={setPlayers}
+      >
+        {playerEls}
+      </ReactSortable>
     </div>
   );
 }
