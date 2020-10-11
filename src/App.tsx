@@ -14,17 +14,15 @@ const normalizeScores = (players: PlayerState[]): ScoreMap => {
   let minScore = Math.min.apply(null, scores);
   let range = Math.max.apply(null, scores) - minScore;
 
-  let normalized = players.reduce((acc: ScoreMap, p) => {
+  let normalized = players.reduce((acc: ScoreMap, p, idx) => {
     if (range === 0) {
-      acc[p.id] = defaultScore;
+      acc[idx] = defaultScore;
     } else {
-      acc[p.id] = (p.score - minScore) / range;
+      acc[idx] = (p.score - minScore) / range;
     }
 
     return acc;
   }, {});
-
-  // console.log(normalized);
 
   return normalized;
 };
@@ -39,12 +37,13 @@ function App() {
     return ps;
   });
 
-  const handleScoreChange = (id: number, { diff = 0, reset = false }): void => {
+  const handleScoreChange = (id: string, { diff = 0, reset = false }): void => {
     console.log("handlescore");
+    let idx = players.findIndex((el) => el.id === id);
     if (reset) {
-      players[id - 1].score = 0;
+      players[idx].score = 0;
     } else {
-      players[id - 1].score += diff;
+      players[idx].score += diff;
     }
 
     setPlayers([...players]);
@@ -64,9 +63,10 @@ function App() {
     });
   };
 
-  const setAlive = (id: number, isAlive: boolean) => {
+  const setAlive = (id: string, isAlive: boolean) => {
     setPlayers((ps) => {
-      ps[id - 1].isAlive = isAlive;
+      let idx = ps.findIndex((el) => el.id === id);
+      ps[idx].isAlive = isAlive;
       return [...ps];
     });
   };
@@ -87,7 +87,7 @@ function App() {
     return (
       <Player
         key={index}
-        id={index + 1}
+        index={index + 1}
         isAlive={player.isAlive}
         onAliveChange={setAlive}
         onScoreChange={handleScoreChange}

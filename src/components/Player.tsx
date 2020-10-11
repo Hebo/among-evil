@@ -21,11 +21,11 @@ export type PlayerState = {
 };
 
 type PlayerProps = {
+  index: number;
   isAlive: boolean;
   onAliveChange: Function;
   onScoreChange: Function;
   onNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  id: number;
   score: number;
   scoreNormalized: number;
   player: PlayerState;
@@ -51,7 +51,7 @@ const Player = (props: PlayerProps) => {
           "Player--dead": !props.isAlive,
         })}
       >
-        <label className="label">{props.id}.</label>
+        <label className="label">{props.index}.</label>
       </div>
       <div
         className={cn("field has-addons", {
@@ -62,7 +62,7 @@ const Player = (props: PlayerProps) => {
           <input
             className="input player-name"
             type="text"
-            placeholder={`Player #${props.id}`}
+            placeholder={`Player #${props.index}`}
             value={props.player.name}
             onChange={props.onNameChange}
           />
@@ -76,7 +76,7 @@ const Player = (props: PlayerProps) => {
             className="button"
             tabIndex={-1}
             style={scoreStyle}
-            onClick={props.onScoreChange.bind(null, props.id, {
+            onClick={props.onScoreChange.bind(null, props.player.id, {
               reset: true,
             })}
           >
@@ -93,7 +93,7 @@ const Player = (props: PlayerProps) => {
           <button
             className="button is-outlined is-danger bad"
             tabIndex={-1}
-            onClick={props.onScoreChange.bind(null, props.id, {
+            onClick={props.onScoreChange.bind(null, props.player.id, {
               diff: -1,
             })}
           >
@@ -104,7 +104,7 @@ const Player = (props: PlayerProps) => {
           <button
             className="button is-outlined is-success good"
             tabIndex={-1}
-            onClick={props.onScoreChange.bind(null, props.id, {
+            onClick={props.onScoreChange.bind(null, props.player.id, {
               diff: +1,
             })}
           >
@@ -117,7 +117,7 @@ const Player = (props: PlayerProps) => {
         <StatusButton
           alive={props.isAlive}
           onAliveChange={(isAlive: boolean) => {
-            props.onAliveChange(props.id, isAlive);
+            props.onAliveChange(props.player.id, isAlive);
           }}
         />
       </div>
